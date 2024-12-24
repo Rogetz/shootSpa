@@ -86,7 +86,7 @@ export function OptionsForm({defaultOption,setDisplayState,setStepTwo}:{defaultO
                     <label htmlFor="other">other</label>
                     <input type="radio" id="other" name="shootOptions" value="other"/>
                 </div>
-                <button type="submit" className="px-6 py-2 bg-transparent text-white rounded-3xl font-bold border-2 border-blue-600">submit</button>
+                <button type="submit" className="px-6 py-2 bg-transparent dark:text-white text-black rounded-3xl font-bold border-2 border-blue-600">submit</button>
             </form>
         </div>
     )
@@ -204,7 +204,7 @@ export function BookForm({shootType,setDisplayState}:{shootType:string,setDispla
                     <input type="radio" id="payLater" onChange={payAfterHandler} name="paymentOptions" value="payLater"/>
                 </div>
                 {/*pass the shoot type as well which is a prop here */}
-                <Link className="text-green-900 border-2 border-green-900 hover:text-white flex gap-4 items-center px-6 py-2 bg-transparent rounded-lg font-bold" onClick={linkHandler} href={`https://wa.me/+254768230039/?text=${finalMessage}`} target="blank"><FaBook className="text-3xl"/><span>book</span></Link>
+                <Link className=" border-2 border-blue-600 dark:hover:text-white hover:text-black  text-blue-600  flex gap-4 items-center px-6 py-2 bg-transparent rounded-lg font-bold" onClick={linkHandler} href={`https://wa.me/+254768230039/?text=${finalMessage}`} target="blank"><FaBook className="text-3xl"/><span>book</span></Link>
             </form>
             
         </div>
