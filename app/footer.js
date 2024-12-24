@@ -1,6 +1,7 @@
 "use client";
 import { FaArrowRight, FaCopyright, FaFacebook, FaInstagram, FaRegArrowAltCircleRight,FaRegCopyright,FaTwitter } from "react-icons/fa";
 import Link from "next/link"
+import { resendTest } from "./components/resendTest";
 
 
 export function Footer(){
@@ -8,13 +9,15 @@ export function Footer(){
 
     let newsletterHandler = function(e){
         e.preventDefault()
+        let emailToSend = e.target.newsLetter.value.toLowerCase()
+        resendTest(emailToSend)
     }
     return(        
         <div className="flex flex-col h-auto mt-12  w-full gap-4 px-4 items-center bg-gradient-to-br  from-pink-600 dark:via-black via-white dark:to-black to-white">
             <p className="text-blue-800 font-bold text-lg text-left w-full sm:w-auto">get updates on our shoot events</p>
             <p className="dark:text-white text-black text-3xl text-left w-full sm:w-auto"> subscribe to our shoot events </p>
             <form onSubmit={newsletterHandler} className="flex pb-3 justify-between w-full border-b-2 border-blue-500 sm:w-3/4 lg:w-2/4">
-            <input type="text" id="newsLetter" placeholder="enter your email here" className="outline-none border-none bg-transparent dark:bg-transparent"/>
+            <input type="text" id="newsLetter" name="newsLetter" placeholder="enter your email here" className="outline-none border-none bg-transparent dark:bg-transparent"/>
             <FaArrowRight className="text-blue-600"/>
             </form>
             <div className=" w-auto flex h-12 gap-4 lg:gap-6">
