@@ -345,7 +345,7 @@ export function ShootWrapper(){
                     <h1 className="text-4xl md:text-5xl lg:text-7xl text-blue-600 font-bold"> <span className="text-pink-600">shoot</span> <span className="text-xl">your</span>  <span className="text-pink-600">shot</span> </h1>
                     <h3 className="text-sm dark:text-slate-600 text-black font-bold md:font-normal dark:font-bold">You need that shot of a lifetime. Life is too good to let the memories fade. Book a shoot session with colour studios today and have a shot of a lifetime</h3>
                     <h2 className="text-xl  font-bold text-blue-600">book a shoot session of a lifetime today</h2>
-                    <div className="w-full h-auto flex gap-4">
+                    <div className="w-full h-auto flex flex-wrap gap-4">
                         <button className="text-blue-600 font-bold border-blue-600 hover:border-pink-600 border-2 px-5 py-2 rounded-xl" onClick={bookHandler}>book</button>
                         <Link className="text-pink-900 border-pink-900 hover:border-blue-600 bg-transparent no-underline flex gap-4 items-center border-2 px-5 py-2 rounded-xl" href="tel:+254768230039" target="blank"><FaFax className="text-3xl"/><span className="font-bold">call us</span></Link>
                         <Link className="text-green-900 border-green-900 hover:border-pink-600 flex gap-4 items-center border-2 px-5 py-2 rounded-xl" href="https://wa.me/+254768230039" target="blank"><FaWhatsapp className="text-3xl"/><span className="font-bold">chat with us</span></Link>
