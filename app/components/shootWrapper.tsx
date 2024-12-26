@@ -371,7 +371,7 @@ export function ShootPics({setBookPopup,category,shoots}:{setBookPopup:Dispatch<
             })}
 
             </div>
-            <Link className="w-full text-right mt-4 mb-4 relative mr-4 text-pink-900 bg-transparent no-underline flex gap-4 items-center font-bold" href={`category/${category}`} target="blank"><FaArrowRight/><span>view more</span></Link>
+            <Link className="w-full text-right mt-4 mb-4 relative mr-4 text-pink-900 bg-transparent no-underline flex gap-4 items-center font-bold" href={`categories/${category}`} target="blank"><FaArrowRight/><span>view more</span></Link>
         </div>
     )
 }
