@@ -2,7 +2,7 @@
 import { FaArrowRight, FaCopyright, FaFacebook, FaInstagram, FaRegArrowAltCircleRight,FaRegCopyright,FaTwitter } from "react-icons/fa";
 import Link from "next/link"
 import { resendTest } from "./components/resendTest";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {Success,Alert} from "./components/notifications"
 
 
@@ -10,15 +10,19 @@ export function Footer(){
     const [alertState,setAlertState] = useState(<></>)
     const [counterState,setCounterState] = useState(0)
 
+    useEffect(function(){
+        if(counter != 0){
+            setAlertState(<Success success="thank you for subscribing" counter={counterState}/>) 
+        }
+    },[counterState])
+
     let newsletterHandler = function(e){
         e.preventDefault()
         let emailToSend = e.target.newsLetter.value.toLowerCase()
         if(emailToSend.length > 0){
             e.target.newsLetter.value = ""
             setCounterState(prevState => prevState + 1)
-            
-            setAlertState(<Success success="thank you for subscribing" counter={counterState}/>)
-            
+            //the email to be sent            
             resendTest(emailToSend)
         }
 
