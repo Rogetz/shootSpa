@@ -118,7 +118,7 @@ export function Category({category}){
                             category: category
                         }
                         
-                        return <ShootPic shoot={shoot} setBookPopup={setBookPopup}/>
+                        return <ShootPic key={index} shoot={shoot} setBookPopup={setBookPopup}/>
                         
                     })}
                 </div>
@@ -136,7 +136,7 @@ export function ShootPic({shoot,setBookPopup}){
     }
 
     return(
-        <div className="w-5/6 sm:w-[20rem] lg:w-[20rem] flex-shrink-0 flex-grow-1 h-[31rem] dark:bg-black bg-white shadow-sm shadow-blue-700 rounded-xl p-3">
+        <div className="w-full sm:w-[20rem] lg:w-[20rem] flex-shrink-0 flex-grow-1 h-[31rem] dark:bg-black bg-white shadow-sm shadow-blue-700 rounded-xl p-3">
             {/*use the cld image for this */}
             <div className="w-full h-[26rem] rounded-xl">
                 <Image className="w-full h-full object-cover object-center rounded-xl" src={shoot.image} alt="avatar" width={850} height={1200}/>

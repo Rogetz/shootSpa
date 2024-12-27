@@ -84,7 +84,7 @@ export function ContactCard(){
                     <select id="countryCode" name="countryCode" className="h-12 text-sm w-[4rem]">
                         {countries.map(function(country,index){
                             return(
-                                <option value={country.isoNo}>{country.country}</option>
+                                <option key={index} value={country.isoNo}>{country.country}</option>
                             )
                         })}                            
                     </select>

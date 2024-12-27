@@ -328,7 +328,7 @@ export function ShootWrapper(){
                             {/*center div/center image */}
                             {/*this is one of the image components that will be revolving round*/}
                             {stylesArr.map((value,index) => {
-                                return <div style={value.style} className="w-[4rem] h-[4rem] md:w-[4rem]  md:h-[4rem] lg:w-[5rem] lg:h-[5rem] bg-transparent shadow-sm absolute rounded-full overflow-hidden">
+                                return <div key={index} style={value.style} className="w-[4rem] h-[4rem] md:w-[4rem]  md:h-[4rem] lg:w-[5rem] lg:h-[5rem] bg-transparent shadow-sm absolute rounded-full overflow-hidden">
                                     {/*use cldImage as well*/}
                                     <Image src={value.image} alt="avatar" width={850} height={1200}/>
                                 </div>
@@ -336,7 +336,7 @@ export function ShootWrapper(){
                         </div>
                         <div className="w-[18rem] h-[18rem] md:w-[18rem] md:h-[18rem] lg:w-[25rem] lg:h-[25rem] bg-transparent rounded-full shadow-sm overflow-hidden">
                             {/*use the cldImage component*/}
-                            <Image src={mainImageState} alt="avatar" width={850} height={1200}/>
+                            <Image src={mainImageState} alt="avatar" width={850} height={1200} className="transition-all duration-1000"/>
                         </div>
                     </div>
                 </div>
@@ -367,7 +367,7 @@ export function ShootPics({setBookPopup,category,shoots}:{setBookPopup:Dispatch<
             <h1 className="text-xl dark:text-white text-black font-bold mb-4 sticky top-14 left-4">{category}</h1>
             <div className="w-full max-h-[127rem] md:max-h-[97rem] lg:max-h-[65rem] overflow-hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 py-4 place-items-center">
             {shoots.map((shoot,index) => {
-                return <ShootPic shoot={shoot} setBookPopup={setBookPopup}/>
+                return <ShootPic key={index} shoot={shoot} setBookPopup={setBookPopup}/>
             })}
 
             </div>
