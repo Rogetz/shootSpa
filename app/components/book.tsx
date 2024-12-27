@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState,useRef,useEffect, Dispatch, SetStateAction} from "react"
 import { FaBook, FaRegWindowClose } from "react-icons/fa";
+import { Alert } from "./notifications";
 
 
 export function BookWrapper({optionPassed,setBookPopup}:{optionPassed:string,setBookPopup:Dispatch<SetStateAction<JSX.Element>>}){
@@ -101,13 +102,19 @@ export function BookForm({shootType,setDisplayState}:{shootType:string,setDispla
     const [telState,setTelState] = useState<string>("")
     const [emailState,setEmailState] = useState<string>("")
     const submitLinkRef = useRef<HTMLLinkElement>()
-
+    const [alertState,setAlertState] = useState<JSX.Element>(<></>)
+    const [counterState,setCounterState] = useState<number>(0)
 
     useEffect(function(){
         let finalText:string = `hello colour studios \n ${nameState} here \n  I need a ${shootType} shoot at ${locationState}. Thank you`
         setFinalMessage(finalText)
         //here's where we'll be saving from the db
     },[nameState,locationState])
+    useEffect(function(){
+        if(counterState > 0){
+            setAlertState(<Alert err="kindly fill in all the details" counter={counterState}/>)
+        }
+    },[counterState])
 
     let bookHandler = function(e:any){
         e.preventDefault()
@@ -130,9 +137,11 @@ export function BookForm({shootType,setDisplayState}:{shootType:string,setDispla
     let linkHandler = function(e:any){
         if(nameState.length < 2 || locationState.length < 3  ){
             e.preventDefault()
+            setCounterState(prevState => prevState + 1)
         }
         else if((telState == "" || nameState == "") || (emailState == "" || locationState == "")){
             e.preventDefault()
+            setCounterState(prevState => prevState + 1)
         }
     }
 
@@ -167,6 +176,7 @@ export function BookForm({shootType,setDisplayState}:{shootType:string,setDispla
     //all the form data will be stored in the db but only a few of that data will be used in the whatsapp contact card
     return(
         <div className="w-[90%] lg:w-[60%] md:w-[80%] h-[80%] overflow-auto bg-transparent pb-4">
+            {alertState}
             <h1 className="text-xl dark:text-white text-black font-bold">key in your details to finish booking</h1>
             <form onSubmit={bookHandler} className="w-full h-auto flex flex-col gap-3 justify-center items-center">
                 <div className="w-full h-auto flex flex-col gap-2">
