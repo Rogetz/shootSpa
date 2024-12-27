@@ -11,7 +11,7 @@ export function Footer(){
     const [counterState,setCounterState] = useState(0)
 
     useEffect(function(){
-        if(counter != 0){
+        if(counterState != 0){
             setAlertState(<Success success="thank you for subscribing" counter={counterState}/>) 
         }
     },[counterState])
